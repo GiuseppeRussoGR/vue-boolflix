@@ -1,0 +1,40 @@
+#profile-choose {
+  .logo {
+    background: $gradient_logo;
+  }
+
+  .title-profile {
+    color: $_white;
+  }
+
+  .profile-user {
+    display: inline-block;
+    margin-right: 2vw;
+
+    .profile-img-container {
+      max-width: 200px;
+      max-height: 200px;
+      min-height: 84px;
+      min-width: 84px;
+      border: 0.3em solid transparent;
+      border-radius: 10px;
+      box-sizing: content-box;
+
+    }
+
+    .name-profile {
+      font-size: 1.3vw;
+      text-overflow: ellipsis;
+    }
+
+    &:hover {
+      .profile-img-container {
+        border: 0.3em solid white;
+      }
+
+      .name-profile {
+        color: white;
+      }
+    }
+  }
+}

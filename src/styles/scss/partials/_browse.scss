@@ -1,0 +1,78 @@
+#browse {
+  & > .row {
+    z-index: 999;
+  }
+
+  .top-bar {
+    background: $gradient_logo;
+
+    .nav-link {
+      color: $_white;
+    }
+
+    .icon {
+      i {
+        font-size: 1.3em;
+        color: $_white;
+      }
+    }
+  }
+
+  .container-poster {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    &:before {
+      content: "";
+      background: $_black;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.5;
+    }
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+
+    .information-poster {
+      color: $_white;
+      position: absolute;
+      left: 30px;
+      bottom: 100px;
+
+      .overview {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+
+      .button {
+        button {
+          padding-left: 2rem;
+          padding-right: 2.4rem;
+
+          &:first-child{
+            background: $_white;
+            color: $_black;
+          }
+          &:last-child{
+            opacity: 0.9;
+          }
+
+          span {
+            font-size: 1.6rem;
+            font-weight: bold;
+            line-height: 2.4rem;
+          }
+        }
+      }
+    }
+  }
+
+}

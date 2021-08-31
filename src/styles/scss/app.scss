@@ -1,0 +1,32 @@
+@import "partials/variables";
+@import "partials/profile_choose";
+@import "partials/browse";
+
+@font-face {
+  src: url("../fonts/NetflixSans.woff2") format('woff2');
+  font-family: 'Netflix';
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Netflix', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: $_black;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+}
