@@ -26,7 +26,11 @@
       <b-col cols="12 pe-0 ps-0 vh-100">
         <div class="container-poster" v-if="jumboMovie.img !== ''">
           <b-img :src="jumboMovie.img" fluid></b-img>
-          <div class="information-poster d-flex flex-column col-5">
+          <div class="information-poster d-flex flex-column col-12 col-md-6">
+            <div class="b-movie">
+              <span>B</span>
+              <span class="ps-2">Movie</span>
+            </div>
             <div class="title pb-3">
               <h1>{{ jumboMovie.name }}</h1>
             </div>
@@ -34,7 +38,7 @@
               {{ jumboMovie.overview }}
             </div>
             <div class="button pt-5">
-              <b-button class="me-5">
+              <b-button class="me-5 mb-3 mb-md-0">
                 <span class="pe-3"><i class="fas fa-play"></i></span><span>Riproduci</span>
               </b-button>
               <b-button>

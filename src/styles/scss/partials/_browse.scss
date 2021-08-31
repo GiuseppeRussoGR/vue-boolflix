@@ -46,6 +46,19 @@
       left: 30px;
       bottom: 100px;
 
+      .b-movie {
+        span:first-child {
+          color: $_red;
+          font-size: 2em;
+        }
+
+        span:last-child {
+          color: grey;
+          opacity: 0.9;
+          font-size: 1.2em;
+        }
+      }
+
       .overview {
         display: -webkit-box;
         -webkit-line-clamp: 3;
@@ -57,11 +70,12 @@
           padding-left: 2rem;
           padding-right: 2.4rem;
 
-          &:first-child{
+          &:first-child {
             background: $_white;
             color: $_black;
           }
-          &:last-child{
+
+          &:last-child {
             opacity: 0.9;
           }
 
