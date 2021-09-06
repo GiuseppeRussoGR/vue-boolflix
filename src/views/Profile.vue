@@ -13,7 +13,7 @@
           <h1>Chi vuole guardare Netflix?</h1>
         </div>
         <div class="list-profile pt-3">
-          <ul>
+          <ul class="ps-0 text-center">
             <li class="profile-user text-center overflow-hidden" v-for="(profile,index) in profiles" :key="index">
               <router-link :to="{name: 'Browse', params:{img_profile : profile.picture.large}}">
                 <div class="profile-img-container overflow-hidden mb-3">

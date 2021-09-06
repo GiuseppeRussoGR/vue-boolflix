@@ -1,10 +1,7 @@
 module.exports = {
     configureWebpack: {
-
     },
-
-    assetsDir: 'assets',
-
+    //assetsDir: 'assets',
     css: {
       sourceMap: true
     }

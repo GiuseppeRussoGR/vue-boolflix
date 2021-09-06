@@ -1,11 +1,11 @@
 <template>
-  <b-container fluid id="browse">
-    <b-row class="position-fixed w-100">
-      <b-col cols="12" class="top-bar pt-3 ps-4 d-flex justify-content-between align-items-center">
+  <b-container fluid id="browse" class="overflow-hidden">
+    <b-row class="position-fixed w-100" >
+      <b-col cols="12" class="top-bar pt-3 ps-4 d-flex justify-content-between align-items-center" :class="{'bg-scroll' : windowTop > 1}">
         <b-img src="https://fontmeme.com/permalink/210429/a3c965c8ca506ff7278f69241bb6a691.png" alt="Logo" width="100"
                height="32.5">
         </b-img>
-        <b-nav small class="flex-grow-1">
+        <b-nav small class="flex-grow-1 ms-md-3">
           <b-nav-item v-for="(menu,index) in menus" :key="index">{{ menu.name }}</b-nav-item>
         </b-nav>
         <div class="icon d-flex justify-content-between align-items-center">
@@ -49,17 +49,43 @@
         </div>
       </b-col>
     </b-row>
+
+    <b-row class="position-relative list-element w-100">
+      <b-col cols="12" class="w-100 slider-card">
+        <b-col cols="12">
+          <div class="title-section">
+            <h4>I più popolari Film su Boolflix</h4>
+          </div>
+        </b-col>
+          <carousel urlGenre="/genre/movie/list" :api="APIData" :movie_tv="trending.movie"></carousel>
+      </b-col>
+    </b-row>
+
+    <b-row class="position-relative list-element w-100">
+      <b-col cols="12" class="w-100 slider-card">
+        <b-col cols="12">
+          <div class="title-section">
+            <h4>Le più popolari SerieTv su Boolflix</h4>
+          </div>
+        </b-col>
+        <carousel urlGenre="/genre/tv/list" :api="APIData" :movie_tv="trending.tv"></carousel>
+      </b-col>
+    </b-row>
+
+
   </b-container>
 </template>
 
 <script>
 import axios from "axios";
+import carousel from "@/components/carousel";
 
 export default {
   name: "Browse",
   props: {
     img_profile: String
   },
+  components: {carousel},
   data() {
     return {
       menus: [
@@ -93,7 +119,8 @@ export default {
         img: '',
         name: '',
         overview: ''
-      }
+      },
+      windowTop: 0,
     }
   },
   methods: {
@@ -119,11 +146,20 @@ export default {
       this.jumboMovie.img = 'https://image.tmdb.org/t/p/original' + movie.backdrop_path;
       this.jumboMovie.name = movie.title;
       this.jumboMovie.overview = movie.overview;
+    },
+    onScroll() {
+      this.windowTop = window.top.scrollY/* or: e.target.documentElement.scrollTop */
     }
   },
   async created() {
     await this.APIcall('/trending/all/day', '', 'trending');
     this.choosePoster();
+  },
+  mounted() {
+    window.addEventListener("scroll", this.onScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll)
   },
 }
 </script>
