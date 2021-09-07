@@ -1,6 +1,6 @@
 #carousel {
   .swiper-custom {
-    padding: 60px 0;
+    padding: 85px 0;
   }
 
   .container-card {
@@ -11,11 +11,9 @@
 
     .card-info {
       display: none;
-      transition: all 1s;
     }
 
     &:hover {
-      transition: all 1s;
       border-radius: 5px;
       overflow: hidden;
       width: 400px;
@@ -69,7 +67,7 @@
 
         .genres {
           padding: 0 1em;
-          font-size: 0.8em;
+          font-size: 0.6em;
           color: white;
         }
       }

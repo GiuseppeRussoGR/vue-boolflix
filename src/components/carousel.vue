@@ -22,14 +22,14 @@
               <b-col cols="12">
                 <div class="text">
                   <span v-html="qualityGrade()">{{ qualityGrade() }}</span><span
-                    class="title-element"> - {{ typeof element.title !== 'undefined' ? element.title : element.name}}</span>
+                    class="title-element"> - {{ typeof element.title !== 'undefined' ? element.title : element.name }}</span>
                 </div>
               </b-col>
               <b-col cols="12">
                 <div class="genres">
                   <span v-for="(genres,index) in element.genre_ids" :key="index">
                     {{ FindGenre(genres) }} <span class="divisor"
-                                                       v-if="index < element.genre_ids.length - 1"> - </span>
+                                                  v-if="index < element.genre_ids.length - 1"> - </span>
                   </span>
                 </div>
               </b-col>
@@ -65,7 +65,7 @@ export default {
           prevEl: '.swiper-button-prev'
         },
         zoom: false,
-        autoHeight: false,
+        autoHeight: true,
         containerModifierClass: 'swiper-custom ',
         slidesOffsetAfter: 150,
         slidesOffsetBefore: 20,

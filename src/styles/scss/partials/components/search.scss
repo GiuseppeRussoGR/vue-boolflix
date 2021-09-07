@@ -1,0 +1,13 @@
+#search {
+  min-height: 100vh;
+
+  .single-card {
+    padding:1.5em 1em;
+
+    .element-card {
+      img {
+        min-height: 225px;
+      }
+    }
+  }
+}

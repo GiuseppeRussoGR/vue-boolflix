@@ -15,7 +15,7 @@
         <div class="list-profile pt-3">
           <ul class="ps-0 text-center">
             <li class="profile-user text-center overflow-hidden" v-for="(profile,index) in profiles" :key="index">
-              <router-link :to="{name: 'Browse', params:{img_profile : profile.picture.large}}">
+              <router-link :to="{name: 'browse_list', params:{img_profile : profile.picture.large}}">
                 <div class="profile-img-container overflow-hidden mb-3">
                   <b-img :src="profile.picture.large" alt="profile" fluid></b-img>
                 </div>
