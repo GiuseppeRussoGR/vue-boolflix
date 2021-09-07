@@ -7,7 +7,7 @@
                height="32.5">
         </b-img>
         <b-nav small class="flex-grow-1 ms-md-3 d-none d-md-flex">
-          <b-nav-item :to="{name: menu.url}" v-for="(menu,index) in menus" :key="index">{{ menu.name }}</b-nav-item>
+          <b-nav-item @click="searchClicked = false; searched = ''"  :to="{name: menu.url}" v-for="(menu,index) in menus" :key="index">{{ menu.name }}</b-nav-item>
         </b-nav>
         <div class="icon d-flex justify-content-between align-items-center">
           <input type="search" placeholder="Cerca" class="me-3 search" @keyup.once="searched_route"
@@ -29,14 +29,15 @@
       </b-col>
     </b-row>
 
-    <router-view :api="APIData"></router-view>
-    <router-view name="search" :search="searched" :api="APIData"></router-view>
+    <router-view :api="APIData" :genre="listGenres"></router-view>
+    <router-view name="search" :genre="listGenres" :search="searched" :api="APIData"></router-view>
 
   </b-container>
 </template>
 
 <script>
 import router from "@/router";
+import axios from "axios";
 
 export default {
   name: "Browse",
@@ -70,7 +71,11 @@ export default {
       ],
       windowTop: 0,
       searchClicked: false,
-      searched: ''
+      searched: '',
+      listGenres: {
+        movie: [],
+        tv: []
+      }
     }
   },
   methods: {
@@ -79,10 +84,22 @@ export default {
     },
     searched_route() {
       router.push({name: 'search'})
+    },
+    async getGeneres(url, element) {
+      const listGenres = await axios.get(this.APIData.APILink + url,
+          {
+            params: {
+              api_key: this.APIData.APIKey,
+              language: 'it',
+            }
+          });
+      this.listGenres[element] = listGenres.data.genres;
     }
   },
   mounted() {
-    window.addEventListener("scroll", this.onScroll)
+    window.addEventListener("scroll", this.onScroll);
+    this.getGeneres('/genre/tv/list', 'tv');
+    this.getGeneres('/genre/movie/list', 'movie');
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.onScroll)

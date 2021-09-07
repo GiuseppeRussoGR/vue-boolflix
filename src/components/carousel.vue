@@ -46,14 +46,14 @@
 <script>
 import {Swiper, SwiperSlide} from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
-import axios from "axios";
 
 export default {
   name: "carousel",
   props: {
     movie_tv: Array,
     api: Object,
-    urlGenre: String
+    genre:Object,
+    type: String
   },
   data() {
     return {
@@ -108,26 +108,14 @@ export default {
     },
     FindGenre(genre) {
       let listGenre = [];
-      this.listGenres.forEach(element => {
+      this.genre[this.type].forEach(element => {
         if (element.id === genre) {
           listGenre.push(element.name);
         }
       });
       return listGenre[0];
     },
-    async getGeneres(url) {
-      const listGenres = await axios.get(this.api.APILink + url,
-          {
-            params: {
-              api_key: this.api.APIKey,
-              language: 'it',
-            }
-          });
-      this.listGenres = listGenres.data.genres;
-    }
+
   },
-  mounted() {
-    this.getGeneres(this.urlGenre);
-  }
 }
 </script>

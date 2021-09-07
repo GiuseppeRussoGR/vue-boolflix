@@ -35,7 +35,7 @@
             <h4>I più popolari Film su Boolflix</h4>
           </div>
         </b-col>
-        <carousel urlGenre="/genre/movie/list" :api="api" :movie_tv="trending.movie"></carousel>
+        <carousel :genre="genre" :api="api" :movie_tv="trending.movie" type="movie"></carousel>
       </b-col>
     </b-row>
 
@@ -46,7 +46,7 @@
             <h4>Le più popolari SerieTv su Boolflix</h4>
           </div>
         </b-col>
-        <carousel urlGenre="/genre/tv/list" :api="api" :movie_tv="trending.tv"></carousel>
+        <carousel :genre="genre" :api="api" :movie_tv="trending.tv" type="tv"></carousel>
       </b-col>
     </b-row>
   </div>
@@ -59,7 +59,8 @@ import axios from "axios";
 export default {
   name: "browser_list",
   props: {
-    api: Object
+    api: Object,
+    genre: Object
   },
   components: {carousel},
   data() {
