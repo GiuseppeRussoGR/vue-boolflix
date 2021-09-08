@@ -38,7 +38,7 @@
       </div>
     </b-col>
     <b-col cols="12" class="pt-3">
-      <h2 class="text-light pt-3">Movies</h2>
+      <h2 class="text-light pt-3">TV</h2>
       <div class="container-card d-flex flex-wrap align-items-center">
         <div v-for="(element,index) in tv" :key="index">
           <div class="single-card" v-if="element.poster_path !== null">
