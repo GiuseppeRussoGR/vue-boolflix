@@ -1,7 +1,10 @@
 module.exports = {
+    publicPath: process.env.NODE_ENV === 'production'
+        ? '/projects/boolFlix/'
+        : '/',
     configureWebpack: {
     },
-    //assetsDir: 'assets',
+    assetsDir: 'assets',
     css: {
       sourceMap: true
     }
