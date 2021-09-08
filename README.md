@@ -27,4 +27,4 @@ Librerie utilizzate:
 
 Anteprima
 
-<img src="img/Boolflix.png">
+<img src="src/assets/boolflix.jpg">
