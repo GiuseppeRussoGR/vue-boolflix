@@ -1,24 +1,30 @@
-# booflix
+<h1>Progetto BoolFlix</h1>
+<h3>Elenco di Film/SerieTV provenienti da API con possibilità di ricerca</h3>
+<p><em>Gli Elementi sono reattivi all'hover con la possibilità di visualizzare altre informazioni inerenti all'elemento.</em></p>
 
-## Project setup
-```
-npm install
-```
+Linguaggi utilizzati:
+<p>
+<ul>
+<li>HTML</li>
+<li>SCSS</li>
+<li>Javascript</li>
+</ul>
+</p>
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Framework utilizzati:
+<p>
+<ul>
+<li>Vue</li>
+</ul>
+</p>
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Librerie utilizzate:
+<p>
+<ul>
+<li>Axios</li>
+</ul>
+</p>
 
-### Lints and fixes files
-```
-npm run lint
-```
+Anteprima
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<img src="src/assets/boolflix.jpg">
